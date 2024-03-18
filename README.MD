@@ -20,7 +20,7 @@ This project is a RESTful API for a basic social networking application develope
 
 ## Endpoints
 
-### Users
+## Authentication
 
 * POST /api/v1/user/register: Register a new user.
 * POST /api/v1/user/otp: Send OTP to user's email.
@@ -28,7 +28,11 @@ This project is a RESTful API for a basic social networking application develope
 * POST /api/v1/user/logout: Log out the current user.
 * POST /api/v1/user/password/forgot: Send a password reset email.
 * POST /api/v1/user/password/reset/:token: Reset user password.
+
+### Users
+
 * GET /api/v1/user/me: Get user profile details.
+* GET /api/v1/user/users: Get all users list registered in the social networking api.
 * PUT /api/v1/user/me/update: Update user profile details.
 * PUT /api/v1/user/password/update: Update user password.
 * DELETE /api/v1/user/me/delete/profile: Delete user profile.
@@ -102,4 +106,4 @@ Make sure to create a .env file in the directory and add the following essential
 
 [Social Networking API Live Deployment](https://socialnetworkingapi-myhl.onrender.com) **Social Networking API**
 
-[Postman Documentation](https://socialnetworkingapi-myhl.onrender.com) **Postman API Documentation**
+[Postman Documentation](https://documenter.getpostman.com/view/24521993/2sA2xnxph5) **Postman API Documentation**
