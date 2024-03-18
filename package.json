@@ -1,0 +1,24 @@
+{
+  "name": "social-networking-api",
+  "version": "1.0.0",
+  "description": "Implement a RESTful API for a basic social networking application using Node.js and MongoDB. The application will support user profiles, posts (text-based), and the ability to follow other users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek Ahirwar",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.0.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "express-fileupload": "^1.5.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.2",
+    "nodemailer": "^6.9.12",
+    "otp-generator": "^4.0.1",
+    "validator": "^13.11.0"
+  }
+}
