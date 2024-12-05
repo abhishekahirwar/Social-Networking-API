@@ -56,6 +56,10 @@ exports.sendOtp = catchAsyncError(async (req, res, next) => {
 exports.createUser = catchAsyncError(async (req, res, next) => {
     const { name, email, password, confirmPassword, bio, otp } = req.body;
 
+    if (!otp) {
+        return next(new ErrorHandler("All fields are required", 403));
+    }
+
     if (password !== confirmPassword) {
         return next(new ErrorHandler("Password is not matching with confirm Password", 400));
     }
@@ -63,7 +67,7 @@ exports.createUser = catchAsyncError(async (req, res, next) => {
     // Check if OTP is valid
     const storedOtpDoc = await OTP.findOne({ email }).sort({ createdAt: -1 });
     if (!storedOtpDoc || otp !== storedOtpDoc.otp) {
-        return next(new ErrorHandler("The OTP is not valid", 400));
+        return next(new ErrorHandler("Invalid OTP", 400));
     }
 
     const user = await User.create({
@@ -203,7 +207,7 @@ exports.getAllUsers = catchAsyncError(async (req, res, next) => {
     });
 });
 
-// Update User Password
+// Update User's Password
 exports.updatePassword = catchAsyncError(async (req, res, next) => {
     const user = await User.findById(req.user.id).select("+password");
 
@@ -227,7 +231,10 @@ exports.updatePassword = catchAsyncError(async (req, res, next) => {
             message: updatePasswordTemplate(user.email, user.name),
         });
 
-        sendToken(user, 200, 'Password Changed Successfully.', res);
+        return res.status(200).json({
+            success: true,
+            message: "Password Changed Successfully.",
+        });
     } catch (err) {
         console.log("Error", err);
         return next(new ErrorHandler(err.message, 500));

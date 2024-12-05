@@ -25,9 +25,9 @@ This project is a RESTful API for a basic social networking application develope
 * POST /api/v1/user/register: Register a new user.
 * POST /api/v1/user/otp: Send OTP to user's email.
 * POST /api/v1/user/login: Log in an existing user.
-* POST /api/v1/user/logout: Log out the current user.
+* GET /api/v1/user/logout: Log out the current user.
 * POST /api/v1/user/password/forgot: Send a password reset email.
-* POST /api/v1/user/password/reset/:token: Reset user password.
+* PUT /api/v1/user/password/reset/:token: Reset user password.
 
 ### Users
 
@@ -57,31 +57,11 @@ This project is a RESTful API for a basic social networking application develope
 
 * Clone the repository: `git clone https://github.com/abhishekahirwar/social-networking-app.git`
 * Install dependencies: `npm install`
-* Set up environment variables.
+* Set up environment variables (see `.env.sample` for reference).
 * Start the server: `node index.js`
 
 ## Env Variables
-Make sure to create a .env file in the directory and add the following essential variables to use the api.
-
-## Essential Variables
-
-* PORT = Any Port
-* MONGO_URL = Your MongoDB connection URL
-
-* JWT_SECRET = Secret key for JWT
-* JWT_EXPIRE = JWT expiration time
-
-* COOKIE_EXPIRE = Cookie expiration time
-
-* SMTP_SERVICE = Your SMTP service
-* SMTP_MAIL = Your SMTP email
-* SMTP_PASSWORD = Your SMTP password
-* SMTP_HOST = SMTP host
-* SMTP_PORT = SMTP port
-
-* CLOUDINARY_NAME = Your Cloudinary name
-* CLOUDINARY_API_KEY = Your Cloudinary API key
-* CLOUDINARY_API_SECRET = Your Cloudinary API secret
+Make sure to create a .env file in the directory and add the essential variables to use the apis.
 
 ## Technologies Used
 
@@ -100,6 +80,9 @@ Make sure to create a .env file in the directory and add the following essential
 * otp-generator
 
 # Author
+
+**Abhishek Ahirwar**
+
 [LinkedIn](https://www.linkedin.com/in/abhishek-ahirwar-85951b217) **Abhishek Ahirwar**
 
 [GitHub](https://github.com/abhishekahirwar) **Abhishek Ahirwar**
